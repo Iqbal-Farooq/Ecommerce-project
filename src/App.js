@@ -1,14 +1,18 @@
 import {Container, Navbar} from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 import Products from './Sharp/Products';
 import CartBtn from './Cart/CartBtn';
 import Cart from './Cart/Cart';
 import { useState } from 'react';
 import CartProvider from './Store/CartProvider';
+import About from './About/About';
+
 
 
 function App() {
   const[state,setState]=useState(false)
+  const[navstate,setNavstate]=useState(false);
   return (<>
       <CartProvider >
     <Navbar bg="success" expand="lg">
@@ -16,8 +20,8 @@ function App() {
      <Container>
         <Navbar.Brand href="#"> E-Commerce</Navbar.Brand>
         
-        <Navbar href="#">Home </Navbar>
-         <Navbar href="#">about </Navbar>
+        <NavLink to="/About/about" onClick={()=>setNavstate(true)}>about </NavLink>
+         
          
         <Navbar href="#"><CartBtn onClick={()=>setState(true)}></CartBtn>  </Navbar>
       </Container>
@@ -25,10 +29,11 @@ function App() {
     </Navbar>
 
       {state &&  <Cart onClose={()=>setState(false)}/>}
+      {navstate &&<About />}
     
   
   
-     <Products />   </CartProvider>
+    {!navstate &&  <Products /> }   </CartProvider>
   
      </>
       
