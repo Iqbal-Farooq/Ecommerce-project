@@ -4,11 +4,13 @@ import Products from './Sharp/Products';
 import CartBtn from './Cart/CartBtn';
 import Cart from './Cart/Cart';
 import { useState } from 'react';
+import CartProvider from './Store/CartProvider';
 
 
 function App() {
   const[state,setState]=useState(false)
   return (<>
+      <CartProvider >
     <Navbar bg="success" expand="lg">
 
      <Container>
@@ -21,13 +23,16 @@ function App() {
       </Container>
 
     </Navbar>
-    {state &&  <Cart onClose={()=>setState(false)}/>}
+
+      {state &&  <Cart onClose={()=>setState(false)}/>}
     
   
   
-     <Products />
+     <Products />   </CartProvider>
+  
+     </>
       
-    </>
+    
   );
 }
 
