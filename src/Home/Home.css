@@ -1,0 +1,57 @@
+
+.header {
+
+    text-align: center;
+    width: 100%;
+    background-color: darkgrey;
+    padding: 70px;
+    margin-top: 7px;
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: darkgreen
+}
+
+.footer {
+    
+
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: darkgray;
+    margin-top: 7px;
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.play-btn {
+    margin-top: 10px;
+   
+    height: 90px;
+    width: 90px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    cursor: pointer;
+}
+
+.main {
+    margin-top: 1px;
+    background-color:lightblue;
+    color:darkmagenta;
+}
+
+.fimg {
+    height: 40px;
+    width: 40px;
+}
+.album{
+    font-size:x-large;
+    border: 3px solid darkgoldenrod;
+   margin: 10px 40% 0px 40%;
+    cursor: pointer;
+   
+}
