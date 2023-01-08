@@ -44,10 +44,11 @@ const ProductsHandler=()=>{
 
      <Container>
        
-        
-        <NavLink to="/About/aboutcomp" onClick={AboutHandler}>about </NavLink>
-         <NavLink to="/Sharp/products" onClick={ProductsHandler}>Store </NavLink>
         <NavLink to="/Home/home.js"  onClick={HomeHandler}>Home</NavLink>
+       
+         <NavLink to="/Sharp/products" onClick={ProductsHandler}>Store </NavLink>
+          <NavLink to="/About/aboutcomp" onClick={AboutHandler}>about </NavLink>
+        
          
          
         <Navbar href="#"><CartBtn onClick={()=>setState(true)}></CartBtn>  </Navbar>
