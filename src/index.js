@@ -11,7 +11,7 @@ import Appp from './DataFetch/Appp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-   <Appp />
+   <App />
   </BrowserRouter>
 );
 

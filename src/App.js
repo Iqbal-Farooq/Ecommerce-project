@@ -8,6 +8,7 @@ import { useState } from 'react';
 import CartProvider from './Store/CartProvider';
 import AboutComp from './About/AboutComp';
  import Home from './Home/Home';
+ import Contact from './Contact_us/Contact';
 
 
 function App() {
@@ -15,11 +16,13 @@ function App() {
   const[navstate,setNavstate]=useState(false);
   const [home,sethome]=useState(false);
   const [store,Setstore]=useState(true);
+  const[contact,setContact]=useState(false);
 
 const AboutHandler=()=>{
    setNavstate(true)
    sethome(false)
    Setstore(false);
+   setContact(false)
 
 }
 
@@ -27,10 +30,20 @@ const HomeHandler=()=>{
   sethome(true)
   setNavstate(false)
   Setstore(false)
+  setContact(false)
 
 }
 const ProductsHandler=()=>{
   Setstore(true);
+  setNavstate(false)
+  sethome(false)
+  setContact(false)
+
+}
+const ContactHandler=()=>{
+  setContact(true)
+
+  Setstore(false);
   setNavstate(false)
   sethome(false)
 
@@ -48,6 +61,7 @@ const ProductsHandler=()=>{
        
          <NavLink to="/Sharp/products" onClick={ProductsHandler}>Store </NavLink>
           <NavLink to="/About/aboutcomp" onClick={AboutHandler}>about </NavLink>
+             <NavLink to="/Contact_us/Contact" onClick={ContactHandler}>Contact Us </NavLink>
         
          
          
@@ -59,10 +73,9 @@ const ProductsHandler=()=>{
       {state &&  <Cart onClose={()=>setState(false)}/>}
       {navstate &&<AboutComp/>}
       {home && <Home /> }
-    
-  
-  
-    {!navstate && !home  && <Products /> }   </CartProvider>
+     {store  && <Products />}
+     {contact && <Contact />} 
+      </CartProvider>
   
      </>
       
