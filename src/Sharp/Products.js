@@ -1,4 +1,5 @@
 import {Container,Row,Card,Col, Button} from "react-bootstrap"
+import {Link} from 'react-router-dom';
 import CartContext from "../Store/CartContext";
 import { useContext } from "react";
 const Products=()=>{
@@ -7,43 +8,82 @@ const Products=()=>{
 const productsArr = [
 
 {
+  id:1,
 
-title: 'Colors',
+title: 'APPLE iPhone 14 (128 GB)',
 
-price: 100,
+price:73990,
 
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+imageUrl: 'https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/9/e/e/-original-imaghx9q5rvcdghy.jpeg?q=70',
+
+},
+{
+  id:2,
+
+title: 'Men  Casual Jacket ',
+
+price:489,
+
+imageUrl: 'https://rukminim1.flixcart.com/image/832/832/xif0q/jacket/a/o/w/xxl-1-no-tnvgywthdfuljacket-k15-tripr-original-imaghahhfqdyvbcz.jpeg?q=70',
+
+},
+
+
+
+{
+id:3,
+title: 'Women  Black T-Shirt',
+
+price: 329,
+
+imageUrl: 'https://rukminim1.flixcart.com/image/832/832/l2arp8w0/shopsy-t-shirt/s/3/0/s-nmp-try-this-original-imag5xe3sdhgg8sg.jpeg?q=70',
 
 },
 
 {
+  id:4,
 
-title: 'Black and white Colors',
+title: 'Men  Sleeve Sweatshirt',
 
-price: 50,
+price: 549,
 
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+imageUrl: 'https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/q/z/9/xl-sw40-blmt-eyebogler-original-imaghcy9f5bkbzeu.jpeg?q=70',
+
+},
+{
+  id:5,
+
+title: 'Smartwatch ',
+
+price: 1499,
+
+imageUrl: 'https://rukminim1.flixcart.com/image/416/416/xif0q/smartwatch/f/r/z/-original-imaggtzta6yd73kf.jpeg?q=70',
+
+},
+{
+  id:6,
+
+title: 'ASUS VivoBook Core i3 10th Gen',
+
+price: 52990,
+
+imageUrl: 'https://rukminim1.flixcart.com/image/416/416/kp2y2kw0/computer/y/0/c/na-thin-and-light-laptop-asus-original-imag3ebnzawky4kn.jpeg?q=70',
 
 },
 
+
 {
-
-title: 'Yellow and Black Colors',
-
-price: 70,
-
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-
+  id:7,
+  title:'Apple AirPods ',
+  price: 13990 ,
+imageUrl:"https://m.media-amazon.com/images/I/31Ri-FAMBUL._SY445_SX342_QL70_FMwebp_.jpg"
 },
-
 {
+  id:8,
+  title:' Bike for Kids' ,
+  price:7999,
 
-title: 'Blue Color',
-
-price: 100,
-
-imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-
+  imageUrl:"https://m.media-amazon.com/images/I/51dK1EbowSL._SX300_SY300_QL70_FMwebp_.jpg"
 }
 
 ]
@@ -55,17 +95,18 @@ imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
 return (<>
 
      
-     <Row  xs={2} md={2}  className="mt-2" >
+     <Row   md={4}  className="mt-2" >
       {productsArr.map((item) => ( 
-        <Col xs={4}  >
-         
-            
+        <Col   >
+      
+            <Link to='/Sharp/products/item.id'></Link>
             <Card.Body className="p-5">
-            <Card.Title className="mb-2">{item.title}</Card.Title>
+            
+             <Card.Title className="mb-2">{item.title}</Card.Title>
              
-               <img   style={{width:"30%", height:"30%"}}  src={item.imageUrl} />
+           <Link to={`/Sharp/products/${item.id}/`}><img   style={{width:"80%", height:"50%"}}  src={item.imageUrl} alt="images" /> </Link>
               <Card.Text style={{display:"flex ",margin:"15px 0px 0 0"}} >
-              <h4> price- {item.price} </h4>
+              <h4> ₹ {item.price} </h4>
               <Button onClick={()=>{ctx.addItem({...item,quantity:1})}} size="md" style={{display:"flex ",margin:"0 3px 0 9px"}} >Add-To-Cart</Button>
               </Card.Text>
             </Card.Body>
