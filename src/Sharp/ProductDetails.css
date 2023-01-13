@@ -41,6 +41,7 @@
     letter-spacing: 2px;
 }
 .box .row span{
+    font-weight: bold;
     color:green;
     width: fit-content;
     margin-right: 5px;
@@ -52,6 +53,10 @@
 }
 .box .row p {
     color: green;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bold;
+    letter-spacing: 1px;
+    font-style: oblique;
 
 }
 .box .colors button {

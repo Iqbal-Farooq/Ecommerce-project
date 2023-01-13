@@ -46,7 +46,7 @@ const ProductDetails=()=>{
         </div>
         <div className="offers">
         <h3>Available offers</h3> 
-        <li>Bank Offer5% Cashback on Flipkart Axis Bank Card T&C</li>
+        <li>Bank Offer 5% Cashback on Flipkart Axis Bank Card T&C</li>
         <li>Bank Offer₹4000 Instant Discount on HDFC Bank Credit Card,Debit Card and Credit Card EMI TransactionsT&C</li>
         <li>Special PriceGet extra ₹5910 off (price inclusive of cashback/coupon)T&C</li>
         <li> No cost EMI ₹12,332/month. Standard EMI also available</li> 
