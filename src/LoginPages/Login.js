@@ -1,6 +1,7 @@
 import {Col,Row,Container,Form,Button,Card} from 'react-bootstrap';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+
+import {  useHistory } from 'react-router-dom';
 import { LoginContext } from './LoginContext';
 import { useContext } from 'react';
 
@@ -38,7 +39,8 @@ const Login=()=>{
         }).then(res=>{
          
         if(res.ok){
-             history.replace('/Sharp/products')
+           
+           
           
           return res.json()
        
@@ -50,9 +52,11 @@ const Login=()=>{
           })
         }
       }).then((data)=>{ 
+         
        
         console.log(data.idToken)
         ctx.login(data.idToken)
+         history.replace('/Sharp/products')
 
        
        

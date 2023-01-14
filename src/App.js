@@ -1,21 +1,22 @@
 import {Container, Navbar} from 'react-bootstrap';
 import "./App.css"
-import { NavLink, Route,Switch,} from 'react-router-dom';
+import { NavLink, Redirect, Route,Switch,} from 'react-router-dom';
 import ProductDetails from './Sharp/ProductDetails';
 import Products from './Sharp/Products';
 import CartBtn from './Cart/CartBtn';
 import Cart from './Cart/Cart';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import CartProvider from './Store/CartProvider';
 import AboutComp from './About/AboutComp';
  import Home from './Home/Home';
  import Contact from './Contact_us/Contact';
  import Login from './LoginPages/Login';
+ import { LoginContext } from './LoginPages/LoginContext';
 
 
 function App() {
   const[state,setState]=useState(false)
-  const [home,setHome]=useState(true);
+  const ctx=useContext(LoginContext);
 
 
   return (<>
@@ -42,17 +43,28 @@ function App() {
 
  
     <Switch>
-
-     
     
-            <Route path="/Home/home.js"> <Home /> </Route> 
-     <Route path="/Sharp/products" exact >  <Products /></Route> 
-           <Route path="/About/aboutcomp" >  <AboutComp/>  </Route> 
+
+      <Route path='/Sharp/products' exact>
+      
+      {ctx.isLoggedIn &&    <Products />}
+      {!ctx.isLoggedIn &&  <Redirect to="/LoginPages/Login" />}
+      
+     
+        
+        </Route> 
+
+
+            <Route path="/"  exact> <Home /> </Route>
+             <Route path="/Home/home.js"  exact> <Home /> </Route> 
+     
+           <Route path="/About/aboutcomp" exact>  <AboutComp/>  </Route> 
      
    
-    <Route path='/Contact_us/Contact'><Contact /></Route>
-    <Route path='/Sharp/products/:productId' ><ProductDetails /></Route>
-    <Route path='/LoginPages/Login'><Login /></Route>
+    <Route path='/Contact_us/Contact' exact><Contact /></Route>
+    
+  
+    <Route path='/LoginPages/Login' exact><Login /></Route>
    
      
     </Switch>

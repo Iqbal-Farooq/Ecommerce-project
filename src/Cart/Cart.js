@@ -114,7 +114,7 @@ const Cart=(props)=>{
  
 
   <Container  style={{display:"flex ", justifyContent: "right" , padding: "1rem"}}>
-      <h2>Total Rs={ctx.totalAmount}</h2>
+      <h2>Total ₹ {ctx.totalAmount}</h2>
       </Container>
 
   <Container  style={{display:"flex ", justifyContent: "center" , padding: "1rem"}}>
