@@ -12,6 +12,7 @@ import AboutComp from './About/AboutComp';
  import Contact from './Contact_us/Contact';
  import Login from './LoginPages/Login';
  import { LoginContext } from './LoginPages/LoginContext';
+ import Logout from './LoginPages/LOgout';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <NavLink to="/About/aboutcomp">about </NavLink>
              <NavLink to="/Contact_us/Contact" >Contact Us </NavLink>
              <NavLink to="/LoginPages/Login">Login</NavLink>
+             {ctx.isLoggedIn && <NavLink to='/LoginPages/LOgout' >Logout</NavLink> }
         
          
          
@@ -62,9 +64,12 @@ function App() {
      
    
     <Route path='/Contact_us/Contact' exact><Contact /></Route>
+     <Route path='/Sharp/products/:productId' ><ProductDetails /></Route>
+     
     
   
     <Route path='/LoginPages/Login' exact><Login /></Route>
+    <Route path='/LoginPages/LOgout' exact><Logout /> </Route>
    
      
     </Switch>

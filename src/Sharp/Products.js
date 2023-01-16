@@ -1,9 +1,29 @@
 import {Container,Row,Card,Col, Button} from "react-bootstrap"
+import React from "react";
 import {Link} from 'react-router-dom';
 import CartContext from "../Store/CartContext";
-import { useContext } from "react";
+import { useContext,useEffect} from "react";
+import axios  from "axios";
+import { LoginContext } from "../LoginPages/LoginContext";
+
+
 const Products=()=>{
+  
+   
+ 
+ const ctxx=useContext(LoginContext)
+  
+ 
   const ctx=useContext(CartContext)
+   if(localStorage.getItem('email')){
+         var Formatedemail=  localStorage.getItem('email').replace("@","").replace(".","")
+          console.log("FORMATED ",Formatedemail)
+
+    }
+
+
+  
+
     
 const productsArr = [
 
@@ -88,8 +108,46 @@ imageUrl:"https://m.media-amazon.com/images/I/31Ri-FAMBUL._SY445_SX342_QL70_FMwe
 
 ]
 
+async function Adddata(item){
+  const obj={title:item.title,price:item.price,quantity:item.quantity,image:item.imageUrl}
+
+
+     const res= await axios.get(`https://crudcrud.com/api/6d0fe045d1cc443dad146ffcaf81be85/cart${Formatedemail}`);
+   let data= await res.data;
    
+   let idx=data.findIndex(item=>item.title===obj.title)
+    console.log("index",idx)
+   if(idx>=0){
+     var id=data[idx]._id
+   var quan=data[idx].quantity
+
+   }
   
+  
+
+   console.log("get data",data);
+
+  if(idx>=0){
+    // const newobj={...obj,quantity:quan+1}
+    // console.log("put data obj",obj)
+    //  console.log("new data obj",newobj)
+       const res= await axios.put(`https://crudcrud.com/api/6d0fe045d1cc443dad146ffcaf81be85/cart${Formatedemail}/${id}`,{...obj,quantity:quan+1});
+       const data=await res.data
+       ctx.addItem(obj)
+      console.log('put data',data)
+
+     console.log("PUT",res)
+
+     }else {
+
+      const res= await axios.post(`https://crudcrud.com/api/6d0fe045d1cc443dad146ffcaf81be85/cart${Formatedemail}`,obj);
+       const data= await res.data;
+       ctx.addItem(obj)
+      
+     console.log("POst New data",res)}
+
+}
+
 
 
 return (<>
@@ -107,7 +165,7 @@ return (<>
            <Link to={`/Sharp/products/${item.id}/`}><img   style={{width:"80%", height:"50%"}}  src={item.imageUrl} alt="images" /> </Link>
               <Card.Text style={{display:"flex ",margin:"15px 0px 0 0"}} >
               <h4> ₹ {item.price} </h4>
-              <Button onClick={()=>{ctx.addItem({...item,quantity:1})}} size="md" style={{display:"flex ",margin:"0 3px 0 9px"}} >Add-To-Cart</Button>
+                <Button onClick={()=>{Adddata({...item,quantity:1})}} size="md" style={{display:"flex ",margin:"0 3px 0 9px"}} >Add-To-Cart</Button>
               </Card.Text>
             </Card.Body>
 

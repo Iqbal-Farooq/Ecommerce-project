@@ -1,10 +1,25 @@
 import CartContext from "../Store/CartContext";
 import { useContext } from "react";
+import { useEffect,useState } from "react";
+import  axios from 'axios';
 
 const CartBtn=(props)=>{
+   
+
+
     const ctx=useContext(CartContext);
-   let quantity=0;
-    ctx.items.forEach(item=>{quantity=quantity+Number(item.quantity)})
+     
+   
+
+
+        let  quantity=0;  
+        ctx.items.forEach(item=>{quantity=quantity+Number(item.quantity)})
+      
+ 
+
+        
+
+   
    
      return <button onClick={props.onClick} >
      <span>🛒</span>

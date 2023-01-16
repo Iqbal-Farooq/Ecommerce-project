@@ -54,8 +54,8 @@ const Login=()=>{
       }).then((data)=>{ 
          
        
-        console.log(data.idToken)
-        ctx.login(data.idToken)
+        console.log("Email",data.email)
+        ctx.login(data.idToken,data.email)
          history.replace('/Sharp/products')
 
        
