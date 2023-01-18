@@ -3,9 +3,9 @@ import CartContext from "../Store/CartContext";
 import { useContext } from "react";
 
 import './ProductDetails.css'
-import { Card,Row} from'react-bootstrap'
+
 const ProductDetails=()=>{
-    const ctx=useContext(CartContext)
+    
     const res=useParams();
     let data=res.productId
     console.log(res.productId)
@@ -258,16 +258,18 @@ const ProductDetails=()=>{
         <span style={{backgroundColor:"green",borderRadius:"10px"}}>  5*</span> Good quality product
         <p>Good look and accurate tracking add some new features calculator and havey use can survive 7to6 day ui very smooth best product value for money</p>
         </div>
-         <div ><span style={{backgroundColor:"green",borderRadius:"10px"}}>  4.5*</span>Pretty good <p>
-            Value for Money watch !
-Pros :
-Built Quality is plastic but it doesnt feel cheap or low quality.
-Long lasting battery and quick charging
- Decent and large display in this price range
- Belt Quality is awesome Lightweight overall
-Great App connectivity and features.
- More numbers of watches faces and sorted bu category in app.
-         </p></div>
+         <div ><span style={{backgroundColor:"green",borderRadius:"10px"}}>  4.5*</span>Pretty good
+          <p>
+                          Value for Money watch !
+              Pros :
+              Built Quality is plastic but it doesnt feel cheap or low quality.
+              Long lasting battery and quick charging
+              Decent and large display in this price range
+              Belt Quality is awesome Lightweight overall
+              Great App connectivity and features.
+              More numbers of watches faces and sorted bu category in app.
+                      </p>
+         </div>
         
         </div>
          </div>}

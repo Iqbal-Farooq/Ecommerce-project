@@ -5,7 +5,7 @@ import ProductDetails from './Sharp/ProductDetails';
 import Products from './Sharp/Products';
 import CartBtn from './Cart/CartBtn';
 import Cart from './Cart/Cart';
-import { useContext, useState } from 'react';
+import { useContext, useState ,useEffect} from 'react';
 import CartProvider from './Store/CartProvider';
 import AboutComp from './About/AboutComp';
  import Home from './Home/Home';
@@ -13,12 +13,21 @@ import AboutComp from './About/AboutComp';
  import Login from './LoginPages/Login';
  import { LoginContext } from './LoginPages/LoginContext';
  import Logout from './LoginPages/LOgout';
+ import axios from 'axios';
+ import CartContext from './Store/CartContext';
 
 
 function App() {
   const[state,setState]=useState(false)
   const ctx=useContext(LoginContext);
+  
+  
+       
+       
+      
+      
 
+    
 
   return (<>
       <CartProvider >
@@ -26,7 +35,7 @@ function App() {
 
      <Container>
        
-        <NavLink to="/Home/home.js"  >Home</NavLink>
+      <NavLink to="/Home/home.js"  >Home</NavLink>
        
          <NavLink to="/Sharp/products">Store </NavLink>
           <NavLink to="/About/aboutcomp">about </NavLink>
@@ -41,6 +50,9 @@ function App() {
 
     </Navbar>
      {state && <Cart onClose={()=>setState(false)}/>}
+    
+     
+   
         
 
  

@@ -15,7 +15,7 @@
     overflow: scroll;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .modal {
         width: 40rem;
         left: calc(80% - 15rem);

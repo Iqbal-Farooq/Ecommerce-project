@@ -112,7 +112,7 @@ async function Adddata(item){
   const obj={title:item.title,price:item.price,quantity:item.quantity,image:item.imageUrl}
 
 
-     const res= await axios.get(`https://crudcrud.com/api/6d0fe045d1cc443dad146ffcaf81be85/cart${Formatedemail}`);
+     const res= await axios.get(`https://crudcrud.com/api/38504f71e6494633893417a2fdaa0b69/cart${Formatedemail}`);
    let data= await res.data;
    
    let idx=data.findIndex(item=>item.title===obj.title)
@@ -131,7 +131,7 @@ async function Adddata(item){
     // const newobj={...obj,quantity:quan+1}
     // console.log("put data obj",obj)
     //  console.log("new data obj",newobj)
-       const res= await axios.put(`https://crudcrud.com/api/6d0fe045d1cc443dad146ffcaf81be85/cart${Formatedemail}/${id}`,{...obj,quantity:quan+1});
+       const res= await axios.put(`https://crudcrud.com/api/38504f71e6494633893417a2fdaa0b69/cart${Formatedemail}/${id}`,{...obj,quantity:quan+1});
        const data=await res.data
        ctx.addItem(obj)
       console.log('put data',data)
@@ -140,7 +140,7 @@ async function Adddata(item){
 
      }else {
 
-      const res= await axios.post(`https://crudcrud.com/api/6d0fe045d1cc443dad146ffcaf81be85/cart${Formatedemail}`,obj);
+      const res= await axios.post(`https://crudcrud.com/api/38504f71e6494633893417a2fdaa0b69/cart${Formatedemail}`,obj);
        const data= await res.data;
        ctx.addItem(obj)
       
@@ -155,9 +155,8 @@ return (<>
      
      <Row   md={4}  className="mt-2" >
       {productsArr.map((item) => ( 
-        <Col   >
-      
-            <Link to='/Sharp/products/item.id'></Link>
+        <Col  key={item.id} >
+
             <Card.Body className="p-5">
             
              <Card.Title className="mb-2">{item.title}</Card.Title>
